@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ls.entity.Student">
+	<select id="queryStudentByid" resultType="com.ls.entity.Student" parameterType="int">
+		select * from student where id = #{id}
+	</select>
+	<select id="queryAllStudent" resultType="com.ls.entity.Student" >
+		select * from student 
+	</select>
+	<insert id="addStudent" parameterType="com.ls.entity.Student" >
+		insert into student values(#{id},#{name},#{age},#{adress})
+	</insert>
+	<update id="updateStudentByid" parameterType="com.ls.entity.Student">
+		update student set name=#{name},age=#{age},adress=#{adress} where id=#{id}
+	</update>
+	<delete id="deleteStudentByid" parameterType="int" >
+		delete from student where id=#{id}
+	</delete>
+	
+</mapper>
